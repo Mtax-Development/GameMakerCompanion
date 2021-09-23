@@ -12,6 +12,6 @@ namespace GMS2_RPC.Element
         internal static readonly string file_executable = folder_app + Program.projectName + ".exe";
         internal static readonly string file_config = folder_app + fileName_config;
         internal static readonly string file_asset_projectIcon = folder_assets + Resource.trayIcon;
-        internal static readonly string url_projectRepository = "https://github.com/Git-Mtax/GMS2_RPC";
+        internal static readonly string url_projectRepository = "https://github.com/Mtax-Development/GMS2_RPC";
     }
 }
