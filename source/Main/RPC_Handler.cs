@@ -135,6 +135,8 @@ namespace GMS2_RPC.Main
                 for (int i = 0; i < instanceNumber_IDE; i++)
                 {
                     windowTitle = processList[i].MainWindowTitle;
+                    
+                    string projectTitle = windowTitle.GetProjectTitle();
 
                     //|Check if IDE is useable and has projects open.
                     if ((windowTitle != String.Empty) && (!windowTitle.Contains(windowTitle_startPage)))
@@ -144,7 +146,7 @@ namespace GMS2_RPC.Main
 
                         for (int j = 0; j < i; j++)
                         {
-                            if (processList[j].MainWindowTitle == windowTitle)
+                            if (processList[j].MainWindowTitle.GetProjectTitle() == projectTitle)
                             {
                                 projectDuplicate = true;
                                 break;
@@ -153,8 +155,6 @@ namespace GMS2_RPC.Main
 
                         if (!projectDuplicate)
                         {
-                            string projectTitle = windowTitle.GetProjectTitle();
-
                             string separator = ", ";
 
                             if (projectNames == String.Empty)
