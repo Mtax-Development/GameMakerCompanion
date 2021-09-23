@@ -22,6 +22,8 @@
             internal static readonly string details_startPage = "On the Start Page";
             internal static readonly string details_projectOpen = "Working on";
             internal static readonly string details_multipleProjectsOpen = " projects:";
+            internal static readonly string details_projectTitlesNotShown = " a project";
+            internal static readonly string details_multipleProjectTitlesNotShown = " projects";
 
             internal static readonly string status_ide = "In main workspace";
             internal static readonly string status_game = "Running the application";
@@ -36,6 +38,7 @@
             internal static readonly string notification_title = General.message_title;
 
             internal static readonly string menuItem_boot = "Launch on boot";
+            internal static readonly string menuItem_showTitles = "Show project titles";
             internal static readonly string menuItem_removeTray = "Remove tray icon";
             internal static readonly string menuItem_about = "About";
             internal static readonly string menuItem_exit = "Exit";

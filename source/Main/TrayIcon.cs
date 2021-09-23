@@ -13,6 +13,7 @@ namespace GMS2_RPC.Main
 
         private static readonly ContextMenu menu = new ContextMenu();
         private static readonly MenuItem menuItem_boot = new MenuItem(UserText.TrayIcon.menuItem_boot, Event.Menu_MarkBoot);
+        private static readonly MenuItem menuItem_showTitles = new MenuItem(UserText.TrayIcon.menuItem_showTitles, Event.Menu_MarkTitles);
         private static readonly MenuItem menuItem_removeTray = new MenuItem(UserText.TrayIcon.menuItem_removeTray, Event.Menu_RemoveTray);
         private static readonly MenuItem menuItem_about = new MenuItem(UserText.TrayIcon.menuItem_about, Event.Menu_About);
         private static readonly MenuItem menuItem_exit = new MenuItem(UserText.TrayIcon.menuItem_exit, Event.Menu_ApplicationExit);
@@ -35,7 +36,7 @@ namespace GMS2_RPC.Main
                         string text_uptime = UserText.TrayIcon.uptime_title + elapsedTime;
 
                         trayIcon.ShowBalloonTip(10000, UserText.TrayIcon.notification_title, text_uptime, ToolTipIcon.None);
-                        break;
+                    break;
                 }
             }
 
@@ -50,6 +51,17 @@ namespace GMS2_RPC.Main
                 INI_Config.StartOnBoot = Program.startOnBoot.ToString();
 
                 RegistryHandler.SetAutomaticStartup(menuItem_boot.Checked);
+            }
+
+            /// <summary> Event that triggers on click of a tray menu option related to changing the option of including project titles in Rich Presence text. </summary>
+            /// <remarks> The status of the menu item being checked will switch. An appriopate information about including project titles in Rich Presence text will be
+            /// written to the INI config and the registry. </remarks>
+            internal static void Menu_MarkTitles(object sender, EventArgs e)
+            {
+                menuItem_showTitles.Checked = !menuItem_showTitles.Checked;
+
+                Program.showProjectTitles = menuItem_showTitles.Checked;
+                INI_Config.ShowProjectTitles = Program.showProjectTitles.ToString();
             }
 
             /// <summary> Event that triggers on click of a tray menu option related to permamently disabling the tray icon. </summary>
@@ -103,11 +115,13 @@ namespace GMS2_RPC.Main
         internal static void Create()
         {
             menu.MenuItems.Add(menuItem_boot);
+            menu.MenuItems.Add(menuItem_showTitles);
             menu.MenuItems.Add(menuItem_removeTray);
             menu.MenuItems.Add(menuItem_about);
             menu.MenuItems.Add(menuItem_exit);
 
             menuItem_boot.Checked = Program.startOnBoot;
+            menuItem_showTitles.Checked = Program.showProjectTitles;
 
             Console.WriteLine("Creating the Tray Icon.");
 

@@ -15,6 +15,9 @@ namespace GMS2_RPC
         /// <summary> Configuration for application's automatic startup. </summary>
         internal static bool startOnBoot = false;
 
+        /// <summary> Configuration for display of project titles in Rich Presence text. </summary>
+        internal static bool showProjectTitles = true;
+
         /// <summary> Configuration for display of application's tray icon. </summary>
         internal static bool hideTrayIcon = false;
 
@@ -34,6 +37,7 @@ namespace GMS2_RPC
 
                 //|Read the configuration from the config file.
                 startOnBoot = ((INI_Config.StartOnBoot.ToLower() == "true") ? true : false);
+                showProjectTitles = ((INI_Config.ShowProjectTitles.ToLower() == "true") ? true : false);
                 hideTrayIcon = ((INI_Config.HideTrayIcon.ToLower() == "false") ? false : true);
 
                 //|Handle the registry key for automatic startup of the application, based on the configuration.

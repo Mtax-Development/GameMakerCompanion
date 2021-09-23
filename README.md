@@ -14,7 +14,7 @@ The application is standalone and does not interact with any part of GameMaker S
 * Shows if you are currently running an application via the runner of GameMaker Studio 2 IDE (when there is only one project open in total).
 * Supports Beta builds of the GameMaker Studio 2 IDE.
 
-* Configurable via right-click context menu of its tray icon. It can setup autostart on system boot (using current user's registry to application's current location) and permamently hide the tray icon.
+* Configurable via right-click context menu of its tray icon. It can setup autostart on system boot (using current user's registry to application's current location), toggle display of project titles and permamently hide the tray icon.
 * Left-clicking the tray icon will create a notification that displays the total uptime of GameMaker Studio 2 IDE while this application was running.
 
 

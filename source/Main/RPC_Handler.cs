@@ -177,14 +177,22 @@ namespace GMS2_RPC.Main
             // Otherwise prepare the code for handling the single project with more detail.
             if (openProjects > 1)
             {
-                details = UserText.RichPresence.details_projectOpen + UserText.RichPresence.details_multipleProjectsOpen;
-                state = projectNames;
+                if (Program.showProjectTitles)
+                {
+                    details = UserText.RichPresence.details_projectOpen + UserText.RichPresence.details_multipleProjectsOpen;
+                    state = projectNames;
+                }
+                else
+                {
+                    details = UserText.RichPresence.details_projectOpen + " " + openProjects.ToString() + UserText.RichPresence.details_multipleProjectTitlesNotShown;
+                    state = ((ApplicationInstance.GetNumber(application_runner) > 0) ? UserText.RichPresence.status_game : UserText.RichPresence.status_ide);
+                }
             }
             else
             {
                 singleProjectID = lastProject;
             }
-
+            
             //|If there's only one IDE that runs a project, create a detailed status/details string for it and set it to Rich Presence.
             if ((instanceNumber_IDE == 1) || (openProjects == 1))
             {
@@ -198,9 +206,10 @@ namespace GMS2_RPC.Main
                     }
                     else
                     {
-                        details = UserText.RichPresence.details_projectOpen + ": \"" + windowTitle.GetProjectTitle() + "\"";
+                        details = ((Program.showProjectTitles) ? UserText.RichPresence.details_projectOpen + ": \"" + windowTitle.GetProjectTitle() + "\""
+                                                               : UserText.RichPresence.details_projectOpen + UserText.RichPresence.details_projectTitlesNotShown);
 
-                        state = (ApplicationInstance.GetNumber(application_runner) > 0) ? UserText.RichPresence.status_game : UserText.RichPresence.status_ide;
+                        state = ((ApplicationInstance.GetNumber(application_runner) > 0) ? UserText.RichPresence.status_game : UserText.RichPresence.status_ide);
                     }
                 }
             }

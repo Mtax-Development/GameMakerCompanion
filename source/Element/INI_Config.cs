@@ -26,6 +26,7 @@ namespace GMS2_RPC.Element
             //|[Preferences]
             internal static readonly string startOnBoot = "StartOnBoot";
             internal static readonly string hideTrayIcon = "HideTrayIcon";
+            internal static readonly string showProjectTitles = "ShowProjectTitles";
         }
 
         /// <summary> Contains the default values for all possible keys in the file. </summary>
@@ -38,6 +39,7 @@ namespace GMS2_RPC.Element
             //|[Preferences]
             internal static readonly string startOnBoot = false.ToString();
             internal static readonly string hideTrayIcon = false.ToString();
+            internal static readonly string showProjectTitles = true.ToString();
         }
         
         internal static string ApplicationCheckDelay
@@ -56,6 +58,12 @@ namespace GMS2_RPC.Element
         {
             get { return GetValue(Section.preferences, Key.startOnBoot); }
             set { SetValue(Section.preferences, Key.startOnBoot, value); }
+        }
+
+        internal static string ShowProjectTitles
+        {
+            get { return GetValue(Section.preferences, Key.showProjectTitles); }
+            set { SetValue(Section.preferences, Key.showProjectTitles, value); }
         }
 
         internal static string HideTrayIcon
@@ -78,6 +86,7 @@ namespace GMS2_RPC.Element
             defaultData.Sections.AddSection(Section.preferences);
             defaultData[Section.preferences].AddKey(Key.startOnBoot, DefaultData.startOnBoot);
             defaultData[Section.preferences].AddKey(Key.hideTrayIcon, DefaultData.hideTrayIcon);
+            defaultData[Section.preferences].AddKey(Key.showProjectTitles, DefaultData.showProjectTitles);
 
             parser.WriteFile(Path.file_config, defaultData);
         }
