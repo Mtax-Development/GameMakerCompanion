@@ -3,7 +3,7 @@ using System.IO;
 
 namespace GMS2_RPC.Element
 {
-    /// <summary> Class that handles contains information about asset files. </summary>
+    /// <summary> Class that contains information about asset files. </summary>
     internal static class Resource
     {
         internal static readonly string trayIcon = "GMS2_RPC.ico";
