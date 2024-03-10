@@ -1,4 +1,7 @@
-# About
+> [!NOTE]
+> This is an archived version of **GameMaker Companion** that is no longer functional.    
+> For latest code, see the [default branch](https://github.com/Mtax-Development/GameMakerCompanion). For latest release, see the [releases tab](https://github.com/Mtax-Development/GameMakerCompanion/releases).
+
 **GMS2_RPC** is a Discord Rich Presence Module for GameMaker Studio 2 IDE.     
 It is a small application that is to run in background and supply your Discord profile with Rich Presence containing information specific to GameMaker Studio 2 IDE while it is running, as exemplified below.
 
@@ -34,7 +37,7 @@ The application is standalone and does not interact with any part of GameMaker S
 
 # Credits
 
-The application was created by [Mtax](https://github.com/Git-Mtax).
+The application was created by [Mtax](https://github.com/Mtax-Development).
 
 The project uses the following libraries and their dependencies:     
 * [discord-rpc-csharp](https://github.com/Lachee/discord-rpc-csharp)
