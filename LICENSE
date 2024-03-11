@@ -1,0 +1,32 @@
+Copyright (c) 2024 https://github.com/Mtax-Development/GameMakerCompanion
+
+The following license text differentiates between two states the code can be in,
+collectively referred to as the "Code":
+1. Source: A version of the code that can be read by a human being.
+2. Software: A version of the code that is not intended to be readable by a human
+being, such as compiled or obfuscated version of the source.
+
+THE CODE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE CODE OR THE USE OR OTHER DEALINGS IN THE
+CODE.
+
+Permission is granted, free of charge, to any person obtaining a copy of this 
+code and associated files to use it for any purposes, including commercial
+applications, and to alter it and redistribute it, subject to the following
+restrictions to the source:
+
+1. The author(s) of this source must not be misrepresented; you must not claim
+that you created the original source.
+
+2. Altered versions of the source must be plainly marked as such, and must not
+be misrepresented as being the original version of the source.
+
+3. The source may not be resold individually. It can be only resold as a part of
+other source or software.
+
+4. The unaltered version of the source that is not a part of other source or
+software may not be re-distributed without this license text.
