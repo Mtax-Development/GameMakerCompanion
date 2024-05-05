@@ -67,7 +67,7 @@ namespace GameMakerCompanion.Utility
                 internal static readonly string Marketplace = @"https://marketplace.gamemaker.io";
                 internal static readonly string UserAccount = @"https://id.gamemaker.io";
                 internal static readonly string HelpCenter = @"https://help.gamemaker.io";
-                internal static readonly string Repositories = @"https://github.com/YoYoGames";  
+                internal static readonly string Repositories = @"https://github.com/YoYoGames";
                 
                 internal readonly struct Manual()
                 {

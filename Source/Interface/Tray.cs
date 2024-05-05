@@ -226,7 +226,7 @@ namespace GameMakerCompanion.Interface
                                            {
                                                Application.Configuration.Application.HideTrayIcon = true;
                                                Application.Configuration.SaveToFile();
-
+                                               
                                                if (Application.OperatingSystem.Platform == OSPlatform.Linux)
                                                {
                                                    new Prompt(UserText.Window.Prompt.RemoveTrayIcon.RestartRequired).Show();
@@ -272,7 +272,7 @@ namespace GameMakerCompanion.Interface
         /// <returns> Single element of tray icon menu. </returns>
         public static NativeMenuItem CreateMenuEntry(string header, EventHandler clickEvent)
         {
-            NativeMenuItem item = new NativeMenuItem(header);
+            NativeMenuItem item = new(header);
             item.Click += clickEvent;
             
             return item;
