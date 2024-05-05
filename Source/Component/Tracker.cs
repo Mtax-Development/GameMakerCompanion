@@ -31,6 +31,7 @@ namespace GameMakerCompanion.Component
                 [
                     [
                         "GameMaker",
+                        "GameMaker-LTS",
                         "GameMaker-Beta",
                         "GameMaker Studio 2",
                         "GameMaker Studio 2-Beta",
