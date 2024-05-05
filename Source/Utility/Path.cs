@@ -62,6 +62,7 @@ namespace GameMakerCompanion.Utility
             internal readonly struct GameMakerWeb()
             {
                 internal static readonly string Homepage = @"https://gamemaker.io";
+                internal static readonly string ReleaseNotes = @"https://releases.gamemaker.io";
                 internal static readonly string Forum = @"https://forum.gamemaker.io";
                 internal static readonly string Marketplace = @"https://marketplace.gamemaker.io";
                 internal static readonly string UserAccount = @"https://id.gamemaker.io";
@@ -73,16 +74,6 @@ namespace GameMakerCompanion.Utility
                     internal static readonly string Stable = @"https://manual.gamemaker.io/monthly";
                     internal static readonly string LTS = @"https://manual.gamemaker.io/lts";
                     internal static readonly string Beta = @"https://manual.gamemaker.io/beta";
-                }
-                
-                internal readonly struct ReleaseNotes()
-                {
-                    internal static readonly string[] Stable = [@"https://gms.yoyogames.com/ReleaseNotes.html",
-                                                                @"https://gms.yoyogames.com/release-notes-runtime.html"];
-                    internal static readonly string[] LTS = [@"https://gms.yoyogames.com/ReleaseNotes-LTS.html",
-                                                             @"https://gms.yoyogames.com/release-notes-runtime-LTS.html"];
-                    internal static readonly string[] Beta = [@"https://gms.yoyogames.com/ReleaseNotes-NuBeta.html",
-                                                              @"https://gms.yoyogames.com/release-notes-runtime-NuBeta.html"];
                 }
             }
             

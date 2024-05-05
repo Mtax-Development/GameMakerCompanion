@@ -173,23 +173,10 @@ namespace GameMakerCompanion.Interface
                             })
                         ]),
                         
-                        CreateMenuEntry(UserText.TrayIcon.Menu.GameMakerWeb.ReleaseNotes,
-                        [
-                            CreateMenuEntry(UserText.TrayIcon.Menu.GameMakerWeb.Branch.Stable, delegate
-                            {
-                                Application.OperatingSystem.OpenURL(Path.Remote.GameMakerWeb.ReleaseNotes.Stable);
-                            }),
-                            
-                            CreateMenuEntry(UserText.TrayIcon.Menu.GameMakerWeb.Branch.LTS, delegate
-                            {
-                                Application.OperatingSystem.OpenURL(Path.Remote.GameMakerWeb.ReleaseNotes.LTS);
-                            }),
-                            
-                            CreateMenuEntry(UserText.TrayIcon.Menu.GameMakerWeb.Branch.Beta, delegate
-                            {
-                                Application.OperatingSystem.OpenURL(Path.Remote.GameMakerWeb.ReleaseNotes.Beta);
-                            })
-                        ]),
+                        CreateMenuEntry(UserText.TrayIcon.Menu.GameMakerWeb.ReleaseNotes, delegate
+                        {
+                            Application.OperatingSystem.OpenURL(Path.Remote.GameMakerWeb.ReleaseNotes);
+                        }),
                         
                         CreateMenuEntry(UserText.TrayIcon.Menu.GameMakerWeb.Forum, delegate
                         {
