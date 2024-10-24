@@ -1,5 +1,6 @@
 ﻿#pragma warning disable IDE0305
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -26,7 +27,7 @@ namespace GameMakerCompanion.Utility
 
         /// <summary> Return the number of instances of application executed by the operating system with specified application title. </summary>
         /// <remarks> Process names are truncated to 15 characters in some operating systems. </remarks>
-        /// <param name="application"> Title of the application in process list. </param>
+        /// <param name="application"> Title of the application in the process list. </param>
         /// <returns> Number of instances found. </returns>
         internal static int GetNumber(string application)
         {
@@ -43,9 +44,10 @@ namespace GameMakerCompanion.Utility
             }
         }
         
-        /// <summary> Return the number of instances of multiple applications executed by the operating system with specified application titles. </summary>
+        /// <summary> Return the number of instances of multiple applications executed by the operating system with specified
+        ///           application titles. </summary>
         /// <remarks> Process names are truncated to 15 characters in some operating systems. </remarks>
-        /// <param name="applicationList"> Array containing titles names of the application in process list. </param>
+        /// <param name="applicationList"> Array containing title names of applications in the process list. </param>
         internal static int GetNumber(string[] applicationList)
         {
             int result = 0;
@@ -66,10 +68,25 @@ namespace GameMakerCompanion.Utility
             
             return result;
         }
+
+        /// <summary> Return the number of instances of multiple applications executed by the operating system that are on the 
+        ///           specified application lists. </summary>
+        /// <remarks> Process names are truncated to 15 characters in some operating systems. </remarks>
+        /// <param name="applicationLists"> Array containing nested arrays with title names of applications in the process list. </param>
+        internal static int GetNumber(string[][] applicationLists)
+        {
+            int count = 0;
+            foreach (string[] applicationList in applicationLists)
+            {
+                count += GetNumber(applicationList);
+            }
+            
+            return count;
+        }
         
         /// <summary> Return process information of application with specified window titles. </summary>
         /// <remarks> Process names are truncated to 15 characters in some operating systems. </remarks>
-        /// <param name="applicationList"> Array containing titles names of the application in process list. </param>
+        /// <param name="applicationList"> Array containing title names of the application in the process list. </param>
         /// <returns> Array with processes of similar titles to specified ones. </returns>
         internal static Process[] GetProcessesByName(string[] applicationList)
         {
@@ -91,6 +108,47 @@ namespace GameMakerCompanion.Utility
             }
             
             return processList;
+        }
+
+        /// <summary> Return file paths of currently running instances of applications in specified application list. </summary>
+        /// <param name="applicationList"> Array containing title names of the application in the process list. </param>
+        /// <returns> Array with paths of processes of similar titles to specified ones. </returns>
+        internal static string[] GetPaths(string[] applicationList)
+        {
+            List<string> result = [];
+            foreach (string application in applicationList)
+            {
+                Process[] process = Process.GetProcessesByName(application);
+                
+                if (process.Length > 0)
+                {
+                    ProcessModuleCollection module = process[0].Modules;
+                    
+                    if (module.Count > 0)
+                    {
+                        result.Add(module[0].FileName);
+                    }
+                }
+            }
+            
+            return result.ToArray();
+        }
+
+        /// <summary> Return file paths of currently running instances of applications in specified application lists. </summary>
+        /// <param name="applicationList"> Array containing nested arrays with title names of the application in the process list. </param>
+        /// <returns> Array with paths of processes of similar titles to specified ones. </returns>
+        internal static string[] GetPaths(string[][] applicationLists)
+        {
+            string[] result = [];
+            int i = 0;
+            foreach (string[] applicationList in applicationLists)
+            {
+                result = result.Concat(GetPaths(applicationLists[i])).ToArray();
+                
+                ++i;
+            }
+
+            return result;
         }
     }
 }

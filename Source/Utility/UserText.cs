@@ -76,6 +76,34 @@ namespace GameMakerCompanion.Utility
                     internal static readonly string RestartRequired= ("The change will take effect the next time " + Application.Name + " starts.");
                     internal static readonly string ButtonText = "Proceed";
                 }
+
+                internal readonly struct Launcher
+                {
+                    internal readonly struct Explanation
+                    {
+                        internal static readonly string PromptText = ("This shortcut can be configured by opening a single instance of GameMaker IDE " +
+                                                                      "to save its path." + Environment.NewLine +
+                                                                      "Open GameMaker IDE, then press the button below.");
+                        internal static readonly string ButtonText = "Set path now";
+                    }
+
+                    internal readonly struct PathSetting
+                    {
+                        internal static readonly string NoInstanceDetected = ("No instance of GameMaker IDE was detected." + Environment.NewLine +
+                                                                              "Please launch a single one and try again.");
+                        internal static readonly string MultipleInstancesDetected = ("Multiple instances of GameMaker IDE are running. Please leave " +
+                                                                                     "only one running and try saving its path again.");
+                        internal static readonly string DirectPathSettingSuccess = ("Path has been saved. It can be readjusted through the \"" +
+                                                                                    Path.FileName.Configuration + "\" file in application directory.");
+
+                        internal readonly struct SteamConversionPossible
+                        {
+                            internal static readonly string PromptText = ("Direct path to the executable has been saved. Would you like to convert " +
+                                                                          "it a Steam protocol instead? If not, simply close this prompt.");
+                            internal static readonly string ButtonText = "Convert to Steam protocol";
+                        }
+                    }
+                }
             }
         }
         
@@ -85,7 +113,8 @@ namespace GameMakerCompanion.Utility
             internal static readonly string Header = "ERROR: ";
             internal static readonly string ConfigurationSavingFailure = ("Failed writing to the \"" + Path.FileName.Configuration + "\" file. " +
                                                                           Instruction.EnsureFileAccess);
-            
+            internal static readonly string OpenRepositoryIssues = "Open issues in repository";
+
             private readonly struct Instruction
             {
                 internal static readonly string EnsureFileAccess = ("Please ensure " + Application.Name + " has file access permissions.");
@@ -115,6 +144,28 @@ namespace GameMakerCompanion.Utility
                                                                   ? "Dependency \"xdotool\" stopped working." : null));
                 }
             }
+             
+            internal readonly struct Launcher
+            {
+                internal static readonly string Header = "There was a problem with executing the launch protocol. ";
+                internal static readonly string LaunchProtocolFailure = (Header + "Please validate the launch protocol and ensure that " +
+                                                                         Application.Name + " can access the target application.");
+                internal static readonly string? TargetFileNonexistent = ((Application.OperatingSystem.Platform == OSPlatform.Windows)
+                                                                          ? (Header + "The target file does not exist.") : null);
+                internal static readonly string FileFolderParsingFailure = "Failed parsing a path to obtain folder a file is in.";
+                
+                internal readonly struct PathConversion
+                {
+                    internal readonly struct Steam
+                    {
+                        internal static readonly string PathParsingFailure = "Failed parsing path to GameMaker IDE in Steam directory.";
+                        internal static readonly string ApplicationIdentifierNotRecognized = ("Steam application ID was not identified. Path remains " +
+                                                                                              "as direct. Please validate \"" +
+                                                                                              Path.FileName.Configuration + "\" in application " +
+                                                                                              "directory and consider reporting this in the repository.");
+                    }
+                }
+            }
             
             internal readonly struct Autostart
             {
@@ -141,6 +192,7 @@ namespace GameMakerCompanion.Utility
         {
             internal readonly struct Menu
             {
+                internal static readonly string OpenGameMaker = "Open GameMaker";
                 internal static readonly string About = "About";
                 internal static readonly string Exit = "Exit";
                 

@@ -11,6 +11,7 @@ using Avalonia.Interactivity;
 using Avalonia.Layout;
 using GameMakerCompanion.Interface.WindowType;
 using GameMakerCompanion.Utility;
+using File = System.IO.File;
 
 namespace GameMakerCompanion.OperatingSystem
 {
@@ -22,6 +23,25 @@ namespace GameMakerCompanion.OperatingSystem
         bool IOperatingSystem.SetupDependencies() => true;
         
         string IOperatingSystem.GetWindowTitle(Process process) => process.MainWindowTitle;
+        
+        void IOperatingSystem.OpenApplication(string launchProtocol)
+        {
+            if ((launchProtocol.EndsWith(".exe")) && (!File.Exists(launchProtocol)))
+            {
+                new Prompt(UserText.Error.Launcher.TargetFileNonexistent).Show();
+            }
+            else
+            {
+                try
+                {
+                    Process.Start(new ProcessStartInfo(launchProtocol) {UseShellExecute = true});
+                }
+                catch (Exception exception)
+                {
+                    Application.LogException(exception, new Prompt(UserText.Error.Launcher.LaunchProtocolFailure));
+                }
+            }
+        }
         
         void IOperatingSystem.OpenURL(params string[] URL)
         {

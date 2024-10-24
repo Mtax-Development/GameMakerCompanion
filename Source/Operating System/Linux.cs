@@ -103,7 +103,19 @@ namespace GameMakerCompanion.OperatingSystem
             
             return string.Empty;
         }
-        
+
+        void IOperatingSystem.OpenApplication(string launchProtocol)
+        {
+            try
+            {
+                Process.Start(new ProcessStartInfo(launchProtocol) {UseShellExecute = true});
+            }
+            catch (Exception exception)
+            {
+                Application.LogException(exception, new Prompt(UserText.Error.Launcher.LaunchProtocolFailure));
+            }
+        }
+
         void IOperatingSystem.OpenURL(params string[] URL)
         {
             try

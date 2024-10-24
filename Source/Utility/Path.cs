@@ -57,7 +57,8 @@ namespace GameMakerCompanion.Utility
         internal readonly struct Remote()
         {
             internal static readonly string ProjectRepository = @"https://github.com/Mtax-Development/GameMakerCompanion";
-            internal static readonly string InitializationInstructions = @"https://github.com/Mtax-Development/GameMakerCompanion#Initialization";
+            internal static readonly string RepositoryIssues = (ProjectRepository + @"/issues");
+            internal static readonly string InitializationInstructions = (ProjectRepository + @"#Initialization");
             
             internal readonly struct GameMakerWeb()
             {

@@ -20,6 +20,7 @@ Made using [.NET](https://dotnet.microsoft.com/en-us/) 8.0. and [Avalonia UI](ht
 
 ● Creates an icon in system tray to provide configuration and additional tools:    
 &nbsp;&nbsp;&nbsp;• Configurable to start automatically when current user is logged into the operating system and to remove the icon from system tray.    
+&nbsp;&nbsp;&nbsp;• Configurable to provide a shortcut to launch Gamemkaer IDE, either directly or through Steam.    
 &nbsp;&nbsp;&nbsp;• Provides a menu with shortcuts to main pages on GameMaker websites.    
 &nbsp;&nbsp;&nbsp;• Creates a notification displaying the total uptime time of GameMaker while this application was running.    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Method of requesting the display is subject to cross-platform differences:    
@@ -78,7 +79,9 @@ Special thanks to [lithiumtoast](https://github.com/lithiumtoast) for help in ma
 
 GameMaker series of software, their logos and web resources are properties of YoYo Games.    
 Discord is a property of Discord Inc.    
+Steam is a property of Valve Corporation.
 This is a free and open-source third-party project, not affiliated with either of them.    
-This application performs connections to Discord servers via their API, solely to facilitate Discord Rich Presence.
+This application performs connections to Discord servers via their API, solely to facilitate Discord Rich Presence.    
+While this application does not connect to Steam servers, it can cause the Steam application to perform such connection while attempting to launch GameMaker IDE that was installed through Steam.
 
 **GameMaker Companion** was previously named **GMS2_RPC**.

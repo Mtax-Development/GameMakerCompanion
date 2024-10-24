@@ -21,7 +21,10 @@ namespace GameMakerCompanion.Utility
         
         /// <summary> Customization of external application detection. </summary>
         public TrackingConfiguration Tracking {get; set;}
-        
+
+        /// <summary> Customization of external application launching. </summary>
+        public LauncherConfiguration Launcher {get; set;}
+
         public record ApplicationConfiguration
         {
             /// <summary> Whether the application should attempt to start on user login. </summary>
@@ -37,6 +40,7 @@ namespace GameMakerCompanion.Utility
             /// <summary> Time in milliseconds before a notification will be shown after displaying previous one. </summary>
             public int RepeatedNotificationCooldown {get; set;}
         }
+
         public record RichPresenceConfiguration
         {
             /// <summary> Whether Discord Rich Presence should be operated. </summary>
@@ -54,6 +58,12 @@ namespace GameMakerCompanion.Utility
             /// <summary> Time in milliseconds after which Rich Presence is removed when no longer applicable. </summary>
             /// <remarks> Extends Rich Presence to prevent non-Rich Presence display. </remarks>
             public int ExitDelay {get; set;}
+        }
+
+        public record LauncherConfiguration
+        {
+            /// <summary> Path or a launch protocol used to launch an external application. </summary>
+            public string? Path {get; set;}
         }
 
         /// <summary> Create or overwrite the configuration file in the same folder as this application. </summary>
@@ -97,7 +107,12 @@ namespace GameMakerCompanion.Utility
                 CheckDelay = 5000,
                 ExitDelay = 7000
             };
-            
+
+            Launcher = new()
+            {
+                Path = null
+            };
+
             SaveToFile();
         }
         
@@ -111,6 +126,7 @@ namespace GameMakerCompanion.Utility
                     Application = JSON.GetProperty("Application").Deserialize<ApplicationConfiguration>();
                     RichPresence = JSON.GetProperty("RichPresence").Deserialize<RichPresenceConfiguration>();
                     Tracking = JSON.GetProperty("Tracking").Deserialize<TrackingConfiguration>();
+                    Launcher = JSON.GetProperty("Launcher").Deserialize<LauncherConfiguration>();
                     
                     Application.StartOnBoot = (Application.StartOnBoot && GameMakerCompanion.Application.OperatingSystem
                                                                                             .ValidateAutomaticStartup());

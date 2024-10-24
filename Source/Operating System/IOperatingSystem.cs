@@ -59,7 +59,11 @@ namespace GameMakerCompanion.OperatingSystem
         /// <param name="process"> Process to obtain the window title of. </param>
         /// <returns> Window title on success. Empty string on failure. </returns>
         internal string GetWindowTitle(Process process);
-        
+
+        /// <summary> Operate specified launch protocol to begin operation of an external application. </summary>
+        /// <param name="launchProtocol"> Run protocol operated by the Operating System. </param>
+        internal void OpenApplication(string launchProtocol);
+
         /// <summary> Forward the specified remote link to opening call in the current runtime platform. </summary>
         /// <param name="URL"> One or multiple links to operate. </param>
         internal void OpenURL(params string[] URL);

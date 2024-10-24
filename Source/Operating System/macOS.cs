@@ -13,8 +13,8 @@ using GameMakerCompanion.Interface.WindowType;
 using GameMakerCompanion.Utility;
 using static GameMakerCompanion.OperatingSystem.UnmanagedCode.CoreGraphics;
 using static GameMakerCompanion.OperatingSystem.UnmanagedCode.CoreFoundation;
-using Path = GameMakerCompanion.Utility.Path;
 using File = System.IO.File;
+using Path = GameMakerCompanion.Utility.Path;
 
 namespace GameMakerCompanion.OperatingSystem
 {
@@ -84,6 +84,24 @@ namespace GameMakerCompanion.OperatingSystem
             }
             
             return result;
+        }
+        
+        void IOperatingSystem.OpenApplication(string launchProtocol)
+        {
+            try
+            {
+                using (Process process = new())
+                {
+                    process.StartInfo.FileName = "open";
+                    process.StartInfo.ArgumentList.Add(launchProtocol);
+                    process.Start();
+                    process.WaitForExit();
+                }
+            }
+            catch (Exception exception)
+            {
+                Application.LogException(exception, new Prompt(UserText.Error.Launcher.LaunchProtocolFailure));
+            }
         }
         
         void IOperatingSystem.OpenURL(params string[] URL)

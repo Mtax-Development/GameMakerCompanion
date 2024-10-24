@@ -131,6 +131,8 @@ namespace GameMakerCompanion.Interface
                 ToolTipText = Application.Name,
                 Menu =
                 [
+                    CreateMenuEntry(UserText.TrayIcon.Menu.OpenGameMaker, Launcher.OperateLaunch),
+
                     CreateMenuEntry(UserText.TrayIcon.Menu.RichPresence.Title,
                     [
                         CreateMenuEntry((Application.OperatingSystem.GetStateSymbol(Application.Configuration.RichPresence.EnableForDiscord) +
