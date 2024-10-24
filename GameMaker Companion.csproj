@@ -25,6 +25,8 @@
 	<DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <SignAssembly>false</SignAssembly>
+	
+	<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)' == 'Windows'">

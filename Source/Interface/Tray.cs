@@ -2,7 +2,10 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Threading.Tasks;
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Media;
 using Avalonia.Platform;
 using Avalonia.Styling;
 using Avalonia.Themes.Fluent;
@@ -32,6 +35,7 @@ namespace GameMakerCompanion.Interface
                 if (!Application.Configuration.Application.HideTrayIcon)
                 {
                     ConstructTrayIcon();
+                    PreloadRender();
                 }
                 
                 if (Application.OperatingSystem.SetupDependencies())
@@ -293,6 +297,37 @@ namespace GameMakerCompanion.Interface
         public static NativeMenuItem CreateMenuEntry(string header, NativeMenu? menu)
         {
             return new NativeMenuItem(header) {Menu = menu};
+        }
+
+        /// <summary> Initialize rendering pipeline with a transparent render, preventing such procedure from taking time when demanded. </summary>
+        async internal static void PreloadRender()
+        {
+            Canvas canvas = new();
+            canvas.Children.Add(new Button()
+            {
+                Content = string.Empty,
+                Foreground = Brushes.Transparent,
+                Background = Brushes.Transparent,
+                Width = 0,
+                Height = 0
+            });
+            
+            Window window = new()
+            {
+                Background = Brushes.Transparent,
+                SystemDecorations = SystemDecorations.None,
+                WindowStartupLocation = WindowStartupLocation.Manual,
+                Position = new PixelPoint(-1, -1),
+                CanResize = false,
+                ShowInTaskbar = false,
+                Width = 0,
+                Height = 0,
+                Content = canvas,
+            };
+            
+            window.Show();
+            await Task.Delay(100);
+            window.Close();
         }
     }
 }
