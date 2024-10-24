@@ -40,8 +40,8 @@ namespace GameMakerCompanion.Utility
             internal readonly static string? AutoStart = (((Application.OperatingSystem.Platform == OSPlatform.OSX) ||
                                                            (Application.OperatingSystem.Platform == OSPlatform.Linux))
                                                           ? (OperatingSystem.AutoStart + FileName.AutoStart) : null);
-            internal static Uri Icon {get => new Uri(@"avares://" + Application.Name + Directory.Subsidiary.ApplicationAssets + FileName.Icon);}
-            internal static Uri Logo {get => new Uri(@"avares://" + Application.Name + Directory.Subsidiary.ApplicationAssets + FileName.Logo);}
+            internal static Uri Icon {get => new(@"avares://" + Application.Name + Directory.Subsidiary.ApplicationAssets + FileName.Icon);}
+            internal static Uri Logo {get => new(@"avares://" + Application.Name + Directory.Subsidiary.ApplicationAssets + FileName.Logo);}
         }
         
         internal readonly struct FileName()

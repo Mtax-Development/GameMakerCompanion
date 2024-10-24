@@ -103,7 +103,7 @@ namespace GameMakerCompanion.OperatingSystem
             
             return string.Empty;
         }
-
+        
         void IOperatingSystem.OpenApplication(string launchProtocol)
         {
             try
@@ -115,7 +115,7 @@ namespace GameMakerCompanion.OperatingSystem
                 Application.LogException(exception, new Prompt(UserText.Error.Launcher.LaunchProtocolFailure));
             }
         }
-
+        
         void IOperatingSystem.OpenURL(params string[] URL)
         {
             try
@@ -153,7 +153,7 @@ namespace GameMakerCompanion.OperatingSystem
             try
             {
                 bool autostartDirectoryExists = Directory.Exists(Path.OperatingSystem.AutoStart);
-
+                
                 if (enable)
                 {
                     string logSuccess = UserText.Information.AutostartEntrySaved;

@@ -21,10 +21,10 @@ namespace GameMakerCompanion.Utility
         
         /// <summary> Customization of external application detection. </summary>
         public TrackingConfiguration Tracking {get; set;}
-
+        
         /// <summary> Customization of external application launching. </summary>
         public LauncherConfiguration Launcher {get; set;}
-
+        
         public record ApplicationConfiguration
         {
             /// <summary> Whether the application should attempt to start on user login. </summary>
@@ -40,7 +40,7 @@ namespace GameMakerCompanion.Utility
             /// <summary> Time in milliseconds before a notification will be shown after displaying previous one. </summary>
             public int RepeatedNotificationCooldown {get; set;}
         }
-
+        
         public record RichPresenceConfiguration
         {
             /// <summary> Whether Discord Rich Presence should be operated. </summary>
@@ -107,12 +107,12 @@ namespace GameMakerCompanion.Utility
                 CheckDelay = 5000,
                 ExitDelay = 7000
             };
-
+            
             Launcher = new()
             {
                 Path = null
             };
-
+            
             SaveToFile();
         }
         

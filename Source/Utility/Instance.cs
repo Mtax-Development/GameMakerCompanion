@@ -24,7 +24,7 @@ namespace GameMakerCompanion.Utility
             
             return false;
         }
-
+        
         /// <summary> Return the number of instances of application executed by the operating system with specified application title. </summary>
         /// <remarks> Process names are truncated to 15 characters in some operating systems. </remarks>
         /// <param name="application"> Title of the application in the process list. </param>
@@ -44,8 +44,8 @@ namespace GameMakerCompanion.Utility
             }
         }
         
-        /// <summary> Return the number of instances of multiple applications executed by the operating system with specified
-        ///           application titles. </summary>
+        /// <summary> Return the number of instances of multiple applications executed by the operating system with specified application
+        ///           titles. </summary>
         /// <remarks> Process names are truncated to 15 characters in some operating systems. </remarks>
         /// <param name="applicationList"> Array containing title names of applications in the process list. </param>
         internal static int GetNumber(string[] applicationList)
@@ -68,9 +68,9 @@ namespace GameMakerCompanion.Utility
             
             return result;
         }
-
-        /// <summary> Return the number of instances of multiple applications executed by the operating system that are on the 
-        ///           specified application lists. </summary>
+        
+        /// <summary> Return the number of instances of multiple applications executed by the operating system that are on the specified
+        ///           application lists. </summary>
         /// <remarks> Process names are truncated to 15 characters in some operating systems. </remarks>
         /// <param name="applicationLists"> Array containing nested arrays with title names of applications in the process list. </param>
         internal static int GetNumber(string[][] applicationLists)
@@ -109,7 +109,7 @@ namespace GameMakerCompanion.Utility
             
             return processList;
         }
-
+        
         /// <summary> Return file paths of currently running instances of applications in specified application list. </summary>
         /// <param name="applicationList"> Array containing title names of the application in the process list. </param>
         /// <returns> Array with paths of processes of similar titles to specified ones. </returns>
@@ -133,7 +133,7 @@ namespace GameMakerCompanion.Utility
             
             return result.ToArray();
         }
-
+        
         /// <summary> Return file paths of currently running instances of applications in specified application lists. </summary>
         /// <param name="applicationList"> Array containing nested arrays with title names of the application in the process list. </param>
         /// <returns> Array with paths of processes of similar titles to specified ones. </returns>
@@ -147,7 +147,7 @@ namespace GameMakerCompanion.Utility
                 
                 ++i;
             }
-
+            
             return result;
         }
     }

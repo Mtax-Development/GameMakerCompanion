@@ -6,7 +6,6 @@ using Avalonia.Input.Platform;
 using Avalonia.Media;
 using Avalonia.Layout;
 using System.Runtime.InteropServices;
-using System;
 
 namespace GameMakerCompanion.Interface
 {
@@ -15,11 +14,11 @@ namespace GameMakerCompanion.Interface
     {
         /// <summary> Size in pixels of the window cross exit button contained in its corner. </summary>
         public readonly static PixelSize ExitButtonSize = new(30, (32 + ((Application.OperatingSystem.Platform == OSPlatform.OSX) ? 4 : 0)));
-
+        
         /// <summary> Handle through which clipboard can be used. </summary>
         /// <remarks> Initialized during creation of the window. </remarks>
         public IClipboard? ClipboardHandle = null;
-
+        
         /// <summary> Reusable button providing functionality to close the window. </summary>
         internal readonly Button ExitButton = new()
         {
@@ -41,7 +40,7 @@ namespace GameMakerCompanion.Interface
             SystemDecorations = SystemDecorations.None;
             Background = Brushes.Transparent;
             Color? backgroundColor;
-
+            
             if (Application.OperatingSystem.Platform == OSPlatform.Windows)
             {
                 //|Acrylic blur is only supported on Windows platforms.

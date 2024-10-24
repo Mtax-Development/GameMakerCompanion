@@ -1,4 +1,4 @@
-﻿#pragma warning disable CS8600, CS8602, CS8604, IDE0001, IDE0002, IDE0047, IDE0220
+﻿#pragma warning disable CS8600, CS8602, CS8604, IDE0001, IDE0002, IDE0047, IDE0056, IDE0220
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -81,7 +81,7 @@ namespace GameMakerCompanion.Interface
                 
                 return state;
             }
-
+            
             /// <summary> Save the time of a click and return the state of current double click. </summary>
             /// <returns> Whether this click is a second click performed within the time window of a double click. </returns>
             static bool RegisterDoubleClick()
@@ -136,22 +136,22 @@ namespace GameMakerCompanion.Interface
                 Menu =
                 [
                     CreateMenuEntry(UserText.TrayIcon.Menu.OpenGameMaker, Launcher.OperateLaunch),
-
+                    
                     CreateMenuEntry(UserText.TrayIcon.Menu.RichPresence.Title,
                     [
                         CreateMenuEntry((Application.OperatingSystem.GetStateSymbol(Application.Configuration.RichPresence.EnableForDiscord) +
                                          UserText.TrayIcon.Menu.RichPresence.EnableForDiscord), delegate (object? sender, EventArgs e)
-                                         {
-                                             Application.Configuration.RichPresence.EnableForDiscord = Toggle((NativeMenuItem)sender);
-                                             Application.Configuration.SaveToFile();
-                                         }),
+                        {
+                            Application.Configuration.RichPresence.EnableForDiscord = Toggle((NativeMenuItem)sender);
+                            Application.Configuration.SaveToFile();
+                        }),
                         
                         CreateMenuEntry((Application.OperatingSystem.GetStateSymbol(Application.Configuration.RichPresence.IncludeProjectTitles) +
                                          UserText.TrayIcon.Menu.RichPresence.IncludeProjectTitles), delegate (object? sender, EventArgs e)
-                                         {
-                                             Application.Configuration.RichPresence.IncludeProjectTitles = Toggle((NativeMenuItem)sender);
-                                             Application.Configuration.SaveToFile();
-                                         })
+                        {
+                            Application.Configuration.RichPresence.IncludeProjectTitles = Toggle((NativeMenuItem)sender);
+                            Application.Configuration.SaveToFile();
+                        })
                     ]),
                     
                     CreateMenuEntry(UserText.TrayIcon.Menu.GameMakerWeb.Title,
@@ -193,6 +193,7 @@ namespace GameMakerCompanion.Interface
                         {
                             Application.OperatingSystem.OpenURL(Path.Remote.GameMakerWeb.Marketplace);
                         }),
+                        
                         CreateMenuEntry(UserText.TrayIcon.Menu.GameMakerWeb.UserAccount, delegate
                         {
                             Application.OperatingSystem.OpenURL(Path.Remote.GameMakerWeb.UserAccount);
@@ -213,11 +214,11 @@ namespace GameMakerCompanion.Interface
                     [
                         CreateMenuEntry((Application.OperatingSystem.GetStateSymbol(Application.Configuration.Application.StartOnBoot) +
                                         UserText.TrayIcon.Menu.Configuration.StartOnBoot), delegate (object? sender, EventArgs e)
-                                        {
-                                            Application.Configuration.Application.StartOnBoot = Toggle((NativeMenuItem)sender);
-                                            Application.OperatingSystem.SetAutomaticStartup(Application.Configuration.Application.StartOnBoot);
-                                            Application.Configuration.SaveToFile();
-                                        }),
+                        {
+                            Application.Configuration.Application.StartOnBoot = Toggle((NativeMenuItem)sender);
+                            Application.OperatingSystem.SetAutomaticStartup(Application.Configuration.Application.StartOnBoot);
+                            Application.Configuration.SaveToFile();
+                        }),
                         
                         CreateMenuEntry(UserText.TrayIcon.Menu.Configuration.RemoveTrayIcon, delegate (object? sender, EventArgs e)
                         {
@@ -225,25 +226,25 @@ namespace GameMakerCompanion.Interface
                                                      UserText.Window.Prompt.RemoveTrayIcon
                                                              .Explanation[(1 + Convert.ToInt32(Application.Configuration.Application.StartOnBoot))]),
                                        UserText.Window.Prompt.RemoveTrayIcon.ButtonText, delegate
-                                       {
-                                           Console.WriteLine(UserText.Information.TrayIconRemoval);
-                                           
-                                           if (Application.TrayIcon != null)
-                                           {
-                                               Application.Configuration.Application.HideTrayIcon = true;
-                                               Application.Configuration.SaveToFile();
-                                               
-                                               if (Application.OperatingSystem.Platform == OSPlatform.Linux)
-                                               {
-                                                   new Prompt(UserText.Window.Prompt.RemoveTrayIcon.RestartRequired).Show();
-                                               }
-                                               else
-                                               {
-                                                   Application.TrayIcon.Dispose();
-                                                   Application.TrayIcon = null;
-                                               }
-                                           }
-                                       }).Show();
+                            {
+                                Console.WriteLine(UserText.Information.TrayIconRemoval);
+                                
+                                if (Application.TrayIcon != null)
+                                {
+                                    Application.Configuration.Application.HideTrayIcon = true;
+                                    Application.Configuration.SaveToFile();
+                                    
+                                    if (Application.OperatingSystem.Platform == OSPlatform.Linux)
+                                    {
+                                        new Prompt(UserText.Window.Prompt.RemoveTrayIcon.RestartRequired).Show();
+                                    }
+                                    else
+                                    {
+                                        Application.TrayIcon.Dispose();
+                                        Application.TrayIcon = null;
+                                    }
+                                }
+                            }).Show();
                         })
                     ]),
                     
@@ -263,7 +264,6 @@ namespace GameMakerCompanion.Interface
             
             Application.TrayIcon.Clicked += Click_ShowUptimeNotification;
             
-
             if (Application.OperatingSystem.Platform != OSPlatform.Windows)
             {
                 foreach (NativeMenuItem item in Application.TrayIcon.Menu)
@@ -274,7 +274,7 @@ namespace GameMakerCompanion.Interface
                     }
                 }
             }
-
+            
             Application.TrayIcon.IsVisible = true;
         }
         
@@ -286,7 +286,7 @@ namespace GameMakerCompanion.Interface
         {
             NativeMenuItem item = new(header);
             item.Click += clickEvent;
-            
+
             return item;
         }
         
@@ -298,7 +298,7 @@ namespace GameMakerCompanion.Interface
         {
             return new NativeMenuItem(header) {Menu = menu};
         }
-
+        
         /// <summary> Initialize rendering pipeline with a transparent render, preventing such procedure from taking time when demanded. </summary>
         async internal static void PreloadRender()
         {

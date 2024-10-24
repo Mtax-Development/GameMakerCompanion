@@ -133,7 +133,7 @@ namespace GameMakerCompanion.Component
             
             return false;
         }
-
+        
         /// <summary> Loop handling Rich Presence creation, updates and removal. </summary>
         private static void OperateDiscordRichPresence()
         {

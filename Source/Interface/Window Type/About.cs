@@ -23,7 +23,7 @@ namespace GameMakerCompanion.Interface.WindowType
             {
                 FontSize = 14;
             }
-
+            
             Bitmap logoBitmap = new(AssetLoader.Open(Path.File.Logo));
             double logoOriginY = Math.Round(Height * 0.015);
             int logoOffsetY = (int)Math.Round(logoBitmap.Size.Height + logoOriginY + (Height * 0.02));
@@ -54,7 +54,7 @@ namespace GameMakerCompanion.Interface.WindowType
             
             PixelPoint bottomButtonOrigin = new((int)Math.Round(contentOffset.X * 0.5), (contentEnd.Y - 50));
             int buttonWidth = 217;
-
+            
             Button openApplicationDirectoryButton = new()
             {
                 Width = buttonWidth,

@@ -76,7 +76,7 @@ namespace GameMakerCompanion.Utility
                     internal static readonly string RestartRequired= ("The change will take effect the next time " + Application.Name + " starts.");
                     internal static readonly string ButtonText = "Proceed";
                 }
-
+                
                 internal readonly struct Launcher
                 {
                     internal readonly struct Explanation
@@ -86,7 +86,7 @@ namespace GameMakerCompanion.Utility
                                                                       "Open GameMaker IDE, then press the button below.");
                         internal static readonly string ButtonText = "Set path now";
                     }
-
+                    
                     internal readonly struct PathSetting
                     {
                         internal static readonly string NoInstanceDetected = ("No instance of GameMaker IDE was detected." + Environment.NewLine +
@@ -95,7 +95,7 @@ namespace GameMakerCompanion.Utility
                                                                                      "only one running and try saving its path again.");
                         internal static readonly string DirectPathSettingSuccess = ("Path has been saved. It can be readjusted through the \"" +
                                                                                     Path.FileName.Configuration + "\" file in application directory.");
-
+                        
                         internal readonly struct SteamConversionPossible
                         {
                             internal static readonly string PromptText = ("Direct path to the executable has been saved. Would you like to convert " +
@@ -114,7 +114,7 @@ namespace GameMakerCompanion.Utility
             internal static readonly string ConfigurationSavingFailure = ("Failed writing to the \"" + Path.FileName.Configuration + "\" file. " +
                                                                           Instruction.EnsureFileAccess);
             internal static readonly string OpenRepositoryIssues = "Open issues in repository";
-
+            
             private readonly struct Instruction
             {
                 internal static readonly string EnsureFileAccess = ("Please ensure " + Application.Name + " has file access permissions.");
