@@ -259,13 +259,19 @@ namespace GameMakerCompanion.Interface
             
             Application.TrayIcon.Clicked += Click_ShowUptimeNotification;
             
-            foreach (NativeMenuItem item in Application.TrayIcon.Menu)
+
+            if (Application.OperatingSystem.Platform != OSPlatform.Windows)
             {
-                if (item.Menu?.Items.Count > 0)
+                foreach (NativeMenuItem item in Application.TrayIcon.Menu)
                 {
-                    item.Click += Click_ShowUptimeNotification;
+                    if (item.Menu?.Items.Count > 0)
+                    {
+                        item.Click += Click_ShowUptimeNotification;
+                    }
                 }
             }
+
+            Application.TrayIcon.IsVisible = true;
         }
         
         /// <summary> Create an entry of the tray icon menu displaying the specified header and executing the specified event on being clicked. </summary>
