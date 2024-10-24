@@ -16,32 +16,32 @@ namespace GameMakerCompanion.Utility
                  (Application.OperatingSystem.Platform == OSPlatform.Linux) ? @"/home/user/.config/autostart/" : null);
         }
         
-        internal readonly struct Folder()
+        internal readonly struct Directory()
         {
             internal readonly static string ApplicationRoot = AppDomain.CurrentDomain.BaseDirectory;
             internal readonly static string? ApplicationBundle = ((Application.OperatingSystem.Platform == OSPlatform.OSX)
                                                                   ? AppDomain.CurrentDomain.BaseDirectory
-                                                                             .Replace((SubFolder.ApplicationBundleBinary), @".app")
+                                                                             .Replace((Subsidiary.ApplicationBundleBinary), @".app")
                                                                   : null);
-        }
-        
-        internal readonly struct SubFolder()
-        {
-            internal readonly static string ApplicationAssets = @"/Asset/";
-            internal readonly static string? ApplicationBundleBinary = ((Application.OperatingSystem.Platform == OSPlatform.OSX) ? @".app/Contents/MacOS/"
+            
+            internal readonly struct Subsidiary
+            {
+                internal readonly static string ApplicationAssets = @"/Asset/";
+                internal readonly static string? ApplicationBundleBinary = ((Application.OperatingSystem.Platform == OSPlatform.OSX) ? @".app/Contents/MacOS/"
                                                                                                                                  : null);
+            }
         }
         
         internal readonly struct File()
         {
-            internal readonly static string Executable = (Folder.ApplicationRoot + Application.Name +
+            internal readonly static string Executable = (Directory.ApplicationRoot + Application.Name +
                                                           ((Application.OperatingSystem.Platform == OSPlatform.Windows) ? ".exe" : string.Empty));
-            internal readonly static string Configuration = (Folder.ApplicationRoot + FileName.Configuration);
+            internal readonly static string Configuration = (Directory.ApplicationRoot + FileName.Configuration);
             internal readonly static string? AutoStart = (((Application.OperatingSystem.Platform == OSPlatform.OSX) ||
                                                            (Application.OperatingSystem.Platform == OSPlatform.Linux))
                                                           ? (OperatingSystem.AutoStart + FileName.AutoStart) : null);
-            internal static Uri Icon {get => new Uri(@"avares://" + Application.Name + SubFolder.ApplicationAssets + FileName.Icon);}
-            internal static Uri Logo {get => new Uri(@"avares://" + Application.Name + SubFolder.ApplicationAssets + FileName.Logo);}
+            internal static Uri Icon {get => new Uri(@"avares://" + Application.Name + Directory.Subsidiary.ApplicationAssets + FileName.Icon);}
+            internal static Uri Logo {get => new Uri(@"avares://" + Application.Name + Directory.Subsidiary.ApplicationAssets + FileName.Logo);}
         }
         
         internal readonly struct FileName()

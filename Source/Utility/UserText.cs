@@ -72,7 +72,7 @@ namespace GameMakerCompanion.Utility
                 {
                     internal static readonly string[] Explanation = (["Icon removal is intended for use along autostart, which currently {0} set up. " +
                                                                       "It can be restored by changing the " + Path.FileName.Configuration + " file in " +
-                                                                      "application folder. Continue?", "is not", "is"]);
+                                                                      "application directory. Continue?", "is not", "is"]);
                     internal static readonly string RestartRequired= ("The change will take effect the next time " + Application.Name + " starts.");
                     internal static readonly string ButtonText = "Proceed";
                 }
@@ -152,7 +152,7 @@ namespace GameMakerCompanion.Utility
                                                                          Application.Name + " can access the target application.");
                 internal static readonly string? TargetFileNonexistent = ((Application.OperatingSystem.Platform == OSPlatform.Windows)
                                                                           ? (Header + "The target file does not exist.") : null);
-                internal static readonly string FileFolderParsingFailure = "Failed parsing a path to obtain folder a file is in.";
+                internal static readonly string FileDirectoryParsingFailure = "Failed parsing a path to obtain directory a file is in.";
                 
                 internal readonly struct PathConversion
                 {

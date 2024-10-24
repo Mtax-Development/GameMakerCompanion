@@ -52,7 +52,7 @@ namespace GameMakerCompanion.Component
                     
                     if ((Application.OperatingSystem.Platform == OSPlatform.Windows) && (pathUsesSteam))
                     {
-                        forceSteamProtocol = (GetFileFolder(Application.Configuration.Launcher.Path) == @"gamemaker_studio");
+                        forceSteamProtocol = (GetFileDirectory(Application.Configuration.Launcher.Path) == @"gamemaker_studio");
                     }
                     
                     if ((pathUsesSteam) && (!forceSteamProtocol))
@@ -82,7 +82,7 @@ namespace GameMakerCompanion.Component
         /// <summary> Return the last directory a file at specific path is in. </summary>
         /// <param name="path"> Path to a file. </param>
         /// <returns> Name of a directory or an empty string in case of an error. </returns>
-        private static string GetFileFolder(string? path)
+        private static string GetFileDirectory(string? path)
         {
             string result = string.Empty;
 
@@ -98,7 +98,7 @@ namespace GameMakerCompanion.Component
 
             if (result == string.Empty)
             {
-                Console.WriteLine(UserText.Error.Launcher.FileFolderParsingFailure);
+                Console.WriteLine(UserText.Error.Launcher.FileDirectoryParsingFailure);
             }
 
             return result;
@@ -111,8 +111,8 @@ namespace GameMakerCompanion.Component
         private static void ConvertPathToSteamProtocol(object? sender = null, EventArgs? e = null)
         {
             string? launchProtocolID = null;
-            string folder_IDE = GetFileFolder(Application.Configuration.Launcher.Path);
-            switch (folder_IDE)
+            string directory = GetFileDirectory(Application.Configuration.Launcher.Path);
+            switch (directory)
             {
                 case @"gamemaker_studio": launchProtocolID = @"214850"; break;
                 case @"GameMaker Studio 2": launchProtocolID = @"1670460"; break;

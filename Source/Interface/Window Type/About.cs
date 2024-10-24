@@ -67,7 +67,7 @@ namespace GameMakerCompanion.Interface.WindowType
             {
                 Process.Start(new ProcessStartInfo()
                 {
-                    FileName = Path.Folder.ApplicationRoot,
+                    FileName = Path.Directory.ApplicationRoot,
                     UseShellExecute = true,
                     Verb = "open"
                 });

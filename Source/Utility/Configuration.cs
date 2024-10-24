@@ -66,7 +66,7 @@ namespace GameMakerCompanion.Utility
             public string? Path {get; set;}
         }
 
-        /// <summary> Create or overwrite the configuration file in the same folder as this application. </summary>
+        /// <summary> Create or overwrite the configuration file in the same directory as this application. </summary>
         public void SaveToFile()
         {
             try

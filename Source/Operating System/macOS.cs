@@ -184,14 +184,14 @@ namespace GameMakerCompanion.OperatingSystem
                                                  "</plist>" + Environment.NewLine);
                             string content = string.Empty;
                             
-                            if (Path.Folder.ApplicationRoot.Contains(Path.SubFolder.ApplicationBundleBinary))
+                            if (Path.Directory.ApplicationRoot.Contains(Path.Directory.Subsidiary.ApplicationBundleBinary))
                             {
                                 //|Case for being run through Application Bundle.
                                 content = ("	<key>ProgramArguments</key>" + Environment.NewLine +
                                            "	 <array>" + Environment.NewLine +
                                            "	  <string>" + "open" + "</string>" + Environment.NewLine +
                                            "	  <string>" + "-a" + "</string>" + Environment.NewLine +
-                                           "	  <string>" + "" + Path.Folder.ApplicationBundle + "" + "</string>" +
+                                           "	  <string>" + "" + Path.Directory.ApplicationBundle + "" + "</string>" +
                                            Environment.NewLine + "	 </array>");
                             }
                             else
@@ -238,8 +238,8 @@ namespace GameMakerCompanion.OperatingSystem
             try
             {
                 string[] lineSet = File.ReadAllLines(Path.File.AutoStart);
-                string targetPath = ((Path.Folder.ApplicationRoot.Contains(Path.SubFolder.ApplicationBundleBinary))
-                                     ? Path.Folder.ApplicationBundle : Path.File.Executable);
+                string targetPath = ((Path.Directory.ApplicationRoot.Contains(Path.Directory.Subsidiary.ApplicationBundleBinary))
+                                     ? Path.Directory.ApplicationBundle : Path.File.Executable);
                 int? lineIndexHeader = null;
                 int? lineIndexProgram = null;
                 int i = 0;
