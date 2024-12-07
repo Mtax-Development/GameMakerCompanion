@@ -79,8 +79,8 @@ Special thanks to [lithiumtoast](https://github.com/lithiumtoast) for help in ma
 
 GameMaker series of software, their logos and web resources are properties of YoYo Games.    
 Discord is a property of Discord Inc.    
-Steam is a property of Valve Corporation.
-This is a free and open-source third-party project, not affiliated with either of them.    
+Steam is a property of Valve Corporation.    
+This is a free and open-source third-party project, not affiliated with any of them.    
 This application performs connections to Discord servers via their API, solely to facilitate Discord Rich Presence.    
 While this application does not connect to Steam servers, it can cause the Steam application to perform such connection while attempting to launch GameMaker IDE that was installed through Steam.
 
