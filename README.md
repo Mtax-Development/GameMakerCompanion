@@ -20,7 +20,7 @@ Made using [.NET](https://dotnet.microsoft.com/en-us/) 8.0. and [Avalonia UI](ht
 
 ● Creates an icon in system tray to provide configuration and additional tools:    
 &nbsp;&nbsp;&nbsp;• Configurable to start automatically when current user is logged into the operating system and to remove the icon from system tray.    
-&nbsp;&nbsp;&nbsp;• Configurable to provide a shortcut to launch Gamemkaer IDE, either directly or through Steam.    
+&nbsp;&nbsp;&nbsp;• Configurable to provide a shortcut to launch GameMaker IDE, either directly or through Steam.    
 &nbsp;&nbsp;&nbsp;• Provides a menu with shortcuts to main pages on GameMaker websites.    
 &nbsp;&nbsp;&nbsp;• Creates a notification displaying the total uptime time of GameMaker while this application was running.    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Method of requesting the display is subject to cross-platform differences:    
