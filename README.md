@@ -2,7 +2,7 @@
   <img src="https://i.imgur.com/t0fYl26.png" alt="GameMaker Companion Logo" width="65%"/>
 </p>
 
-**GameMaker Companion** is a cross-platform companion application and a Discord Rich Presence module for GameMaker series of game engines. It is a small application that can run in background to provide features useful to a GameMaker developer and supply a profile currently logged in Discord application with information specific to GameMaker while it is running:
+**GameMaker Companion** is a cross-platform companion application and a Discord Rich Presence module for GameMaker series of game engines. It is a small application that can run in background to provide features useful to a GameMaker developer and supply a profile currently logged in Discord application with information specific to GameMaker IDE while it is running:
 
 ![Rich Presence Status Preview](https://i.imgur.com/KXYWn3H.png)
 
